@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Social Media OS — Marta López Remón</title>
+<meta name="description" content="El sistema Notion para tiendas de ropa que quieren vender más con sus redes sociales. 27€ · Pago único."/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--negro:#080808;--blanco:#ffffff;--crema:#faf8f4;--lima:#c8f135;--gris:#f2f0ec;--radio:12px;--max:1100px}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--negro);color:var(--blanco);overflow-x:hidden}
+nav{position:sticky;top:0;z-index:99;display:flex;justify-content:space-between;align-items:center;padding:1rem 2rem;background:rgba(8,8,8,.95);border-bottom:1px solid rgba(255,255,255,.07);backdrop-filter:blur(10px)}
+.nav-logo{font-weight:800;font-size:1rem;letter-spacing:-.02em}.nav-logo span{color:var(--lima)}
+.nav-btn{background:var(--lima);color:var(--negro);font-weight:700;font-size:.8rem;padding:.5rem 1.2rem;border-radius:50px;text-decoration:none}
+.hero{min-height:96vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:6rem 1.5rem 4rem;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;width:600px;height:600px;border-radius:50%;background:rgba(200,241,53,.07);top:-100px;left:50%;transform:translateX(-50%)}
+.hero-chip{display:inline-flex;align-items:center;gap:6px;background:rgba(200,241,53,.12);border:1px solid rgba(200,241,53,.25);color:var(--lima);font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.4rem 1rem;border-radius:50px;margin-bottom:2rem;position:relative}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,6.5vw,5.8rem);font-weight:900;line-height:1.04;letter-spacing:-.03em;max-width:860px;margin-bottom:1.4rem;position:relative}
+.hero h1 em{font-style:italic;color:var(--lima)}
+.hero-sub{font-size:1.05rem;color:rgba(255,255,255,.6);max-width:540px;line-height:1.75;margin-bottom:2.5rem;position:relative}
+.hero-btns{display:flex;gap:.75rem;flex-wrap:wrap;justify-content:center;position:relative}
+.btn-cta{background:var(--lima);color:var(--negro);font-weight:800;font-size:1rem;padding:.9rem 2rem;border-radius:50px;text-decoration:none;transition:transform .2s}
+.btn-cta:hover{transform:translateY(-2px)}
+.btn-ghost{background:transparent;color:var(--blanco);font-weight:600;font-size:1rem;padding:.9rem 2rem;border-radius:50px;border:1px solid rgba(255,255,255,.2);text-decoration:none}
+.hero-stats{display:flex;gap:2.5rem;margin-top:3.5rem;flex-wrap:wrap;justify-content:center;position:relative;padding-top:2rem;border-top:1px solid rgba(255,255,255,.08)}
+.stat-num{font-size:2rem;font-weight:800;color:var(--lima);display:block}
+.stat-lbl{font-size:.72rem;color:rgba(255,255,255,.45);text-transform:uppercase;letter-spacing:.06em}
+.sec{padding:5.5rem 1.5rem}
+.wrap{max-width:var(--max);margin:0 auto}
+.sec-chip{font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--lima);margin-bottom:.6rem}
+.sec-h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:900;line-height:1.1;letter-spacing:-.02em;margin-bottom:1rem}
+.sec-sub{font-size:1rem;color:rgba(255,255,255,.55);max-width:520px;line-height:1.75}
+.prob{background:var(--crema);color:var(--negro)}
+.prob .sec-chip{color:#c0392b}.prob .sec-h2{color:var(--negro)}.prob .sec-sub{color:#555}
+.pain-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.2rem;margin-top:2.8rem}
+.pain-card{background:#fff;border-radius:var(--radio);padding:1.6rem;border:1px solid #e8e4de}
+.pain-ico{font-size:1.8rem;margin-bottom:.9rem}
+.pain-card h3{font-size:.95rem;font-weight:700;color:var(--negro);margin-bottom:.4rem}
+.pain-card p{font-size:.85rem;color:#666;line-height:1.6}
+.transform-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2.5rem}
+.t-antes{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:var(--radio);padding:1.5rem}
+.t-despues{background:rgba(200,241,53,.06);border:1px solid rgba(200,241,53,.2);border-radius:var(--radio);padding:1.5rem}
+.t-label{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:1rem;padding:.3rem .7rem;border-radius:20px;display:inline-block}
+.lbl-antes{background:rgba(255,255,255,.08);color:rgba(255,255,255,.5)}
+.lbl-desp{background:rgba(200,241,53,.15);color:var(--lima)}
+.t-item{display:flex;align-items:flex-start;gap:.6rem;font-size:.88rem;line-height:1.5;margin-bottom:.7rem;color:rgba(255,255,255,.75)}
+.t-item:last-child{margin-bottom:0}
+.inc-sec{background:#0e0e0e}
+.inc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.2rem;margin-top:2.8rem}
+.inc-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:var(--radio);padding:1.6rem;transition:border-color .3s,transform .25s}
+.inc-card:hover{border-color:rgba(200,241,53,.3);transform:translateY(-3px)}
+.inc-ico{width:44px;height:44px;border-radius:10px;background:rgba(200,241,53,.1);border:1px solid rgba(200,241,53,.18);display:flex;align-items:center;justify-content:center;font-size:1.2rem;margin-bottom:1rem}
+.inc-card h3{font-size:.95rem;font-weight:700;margin-bottom:.5rem}
+.inc-card p{font-size:.82rem;color:rgba(255,255,255,.55);line-height:1.55}
+.inc-tag{display:inline-block;font-size:.65rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--lima);background:rgba(200,241,53,.1);padding:.2rem .6rem;border-radius:50px;margin-top:.75rem}
+.struct-sec{background:#070707}
+.mod-list{margin-top:2.5rem;display:flex;flex-direction:column;gap:.7rem}
+.mod-row{display:flex;align-items:center;gap:1.2rem;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:var(--radio);padding:1rem 1.2rem}
+.mod-n{font-size:.68rem;font-weight:800;color:var(--lima);letter-spacing:.08em;min-width:24px}
+.mod-name{font-weight:700;font-size:.92rem;flex:1}
+.mod-desc{font-size:.82rem;color:rgba(255,255,255,.45);flex:2}
+.mod-badge{font-size:.62rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:.2rem .6rem;border-radius:50px;white-space:nowrap}
+.b-db{background:rgba(100,160,255,.12);color:#7ab4ff}
+.b-pg{background:rgba(200,241,53,.1);color:var(--lima)}
+.b-tpl{background:rgba(255,150,80,.12);color:#ffaa70}
+.para-sec{background:var(--gris);color:var(--negro)}
+.para-sec .sec-chip{color:#7c3aed}.para-sec .sec-h2{color:var(--negro)}.para-sec .sec-sub{color:#555}
+.para-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.2rem;margin-top:2.5rem}
+.para-card{border-radius:var(--radio);padding:1.6rem;border:2px solid #e5e0d8;background:#fff}
+.para-card.dest{border-color:#7c3aed;background:#f5f0ff}
+.para-emo{font-size:2.2rem;margin-bottom:.8rem}
+.para-card h3{font-size:.95rem;font-weight:800;color:var(--negro);margin-bottom:.4rem}
+.para-card p{font-size:.82rem;color:#666;line-height:1.55}
+.steps{display:flex;flex-direction:column;margin-top:2.5rem;position:relative}
+.steps::before{content:'';position:absolute;left:20px;top:0;bottom:0;width:2px;background:rgba(200,241,53,.15)}
+.step{display:flex;gap:1.2rem;padding:0 0 2.2rem}
+.step-dot{width:42px;height:42px;border-radius:50%;flex-shrink:0;background:var(--lima);color:var(--negro);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:.85rem;z-index:1;box-shadow:0 0 0 5px var(--negro)}
+.step-body{padding-top:.4rem}
+.step-body h3{font-size:.95rem;font-weight:700;margin-bottom:.35rem}
+.step-body p{font-size:.85rem;color:rgba(255,255,255,.55);line-height:1.6;max-width:540px}
+.precio-sec{background:#050505;text-align:center}
+.price-box{max-width:460px;margin:2.5rem auto 0;background:rgba(255,255,255,.03);border:2px solid rgba(200,241,53,.35);border-radius:20px;padding:2.8rem 2.2rem;position:relative;overflow:hidden}
+.price-box::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--lima),transparent)}
+.price-badge{display:inline-block;background:var(--lima);color:var(--negro);font-size:.68rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:.28rem .85rem;border-radius:50px;margin-bottom:1.3rem}
+.price-num{font-family:'Playfair Display',serif;font-size:4.8rem;font-weight:900;color:var(--lima);line-height:1}
+.price-num sup{font-size:1.8rem;vertical-align:super}
+.price-tachado{font-size:.9rem;color:rgba(255,255,255,.35);text-decoration:line-through;margin:.2rem 0}
+.price-nota{font-size:.82rem;color:rgba(255,255,255,.45);margin:.5rem 0 1.8rem;line-height:1.6}
+.price-lista{text-align:left;margin-bottom:1.8rem}
+.price-lista li{display:flex;align-items:center;gap:.6rem;font-size:.87rem;color:rgba(255,255,255,.82);padding:.45rem 0;border-bottom:1px solid rgba(255,255,255,.05);list-style:none}
+.price-lista li::before{content:'✓';color:var(--lima);font-weight:900;font-size:.8rem}
+.btn-comprar{width:100%;background:var(--lima);color:var(--negro);font-weight:800;font-size:1rem;padding:1rem;border-radius:50px;border:none;cursor:pointer;text-decoration:none;display:block;transition:transform .2s}
+.btn-comprar:hover{transform:translateY(-2px)}
+.price-guar{font-size:.75rem;color:rgba(255,255,255,.35);margin-top:1rem}
+.urgencia{background:rgba(200,241,53,.07);border:1px solid rgba(200,241,53,.2);border-radius:var(--radio);padding:.85rem 1.1rem;display:flex;align-items:center;gap:.75rem;margin-top:1rem;text-align:left}
+.urg-txt strong{display:block;font-size:.87rem;font-weight:700;color:var(--lima)}
+.urg-txt span{font-size:.78rem;color:rgba(255,255,255,.5)}
+.faq-sec{background:#0a0a0a}
+.faq-wrap{max-width:680px;margin:2.5rem auto 0}
+.faq-item{border-bottom:1px solid rgba(255,255,255,.07);padding:1.2rem 0}
+details summary{font-weight:600;font-size:.92rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::after{content:'+';font-size:1.3rem;color:var(--lima)}
+details[open] summary::after{content:'−'}
+details p{font-size:.87rem;color:rgba(255,255,255,.55);line-height:1.7;padding-top:.8rem}
+.crea-sec{background:var(--crema);color:var(--negro);text-align:center}
+.crea-av{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,#c8f135,#7c3aed);display:flex;align-items:center;justify-content:center;font-size:2rem;margin:0 auto 1.2rem;border:3px solid #d0cab8}
+.crea-name{font-size:1.4rem;font-weight:800;color:var(--negro);margin-bottom:.2rem}
+.crea-rol{font-size:.85rem;color:#7c3aed;font-weight:600;margin-bottom:.8rem}
+.crea-bio{font-size:.9rem;color:#555;line-height:1.7;max-width:500px;margin:0 auto}
+.crea-tags{display:flex;gap:.5rem;flex-wrap:wrap;justify-content:center;margin-top:1.2rem}
+.ctag{background:#ede9e2;color:#555;font-size:.75rem;font-weight:600;padding:.3rem .85rem;border-radius:50px}
+.testi-sec{background:#050505}
+.testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem;margin-top:2.5rem}
+.testi-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:var(--radio);padding:1.6rem}
+.testi-estrellas{color:var(--lima);font-size:1rem;margin-bottom:.8rem;letter-spacing:2px}
+.testi-card p{font-size:.88rem;color:rgba(255,255,255,.75);line-height:1.7;font-style:italic;margin-bottom:1rem}
+.testi-autor{font-size:.78rem;color:rgba(255,255,255,.4);font-weight:600}
+.cta-final{background:var(--negro);text-align:center;padding:7rem 1.5rem;position:relative;overflow:hidden}
+.cta-final::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 55% at 50% 50%,rgba(200,241,53,.08) 0%,transparent 70%)}
+.cta-h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,4rem);font-weight:900;line-height:1.1;letter-spacing:-.02em;position:relative;margin-bottom:.8rem}
+.cta-h2 em{font-style:italic;color:var(--lima)}
+.cta-p{font-size:1rem;color:rgba(255,255,255,.55);max-width:460px;margin:.5rem auto 2.2rem;position:relative;line-height:1.7}
+.cta-final .btn-cta{position:relative;font-size:1.05rem;padding:1rem 2.5rem}
+footer{background:#030303;padding:2rem 1.5rem;text-align:center;font-size:.78rem;color:rgba(255,255,255,.25);border-top:1px solid rgba(255,255,255,.05)}
+footer a{color:var(--lima);text-decoration:none}
+@media(max-width:680px){.transform-grid{grid-template-columns:1fr}.mod-desc{display:none}.hero-stats{gap:1.5rem}nav{padding:.9rem 1.2rem}.price-num{font-size:4rem}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Social Media <span>OS</span></div>
+  <a href="#precio" class="nav-btn">Conseguir ahora →</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-chip">✦ Plantilla Notion · Tiendas de ropa &amp; Emprendedoras</div>
+  <h1>Tu tienda vende.<br/>Tú <em>duermes.</em></h1>
+  <p class="hero-sub">El sistema Notion que convierte tus redes sociales en tu mejor vendedora. Planifica, publica y analiza todo tu contenido — sin caos, sin improvisar, sin perder más tiempo.</p>
+  <div class="hero-btns">
+    <a href="#precio" class="btn-cta">Quiero mi sistema — 27€ →</a>
+    <a href="#incluye" class="btn-ghost">Ver qué incluye</a>
+  </div>
+  <div class="hero-stats">
+    <div><span class="stat-num">4</span><span class="stat-lbl">Bases de datos</span></div>
+    <div><span class="stat-num">11</span><span class="stat-lbl">Posts de ejemplo</span></div>
+    <div><span class="stat-num">5</span><span class="stat-lbl">Vistas distintas</span></div>
+    <div><span class="stat-num">27€</span><span class="stat-lbl">Pago único</span></div>
+  </div>
+</section>
+
+<section class="sec prob">
+  <div class="wrap">
+    <p class="sec-chip">El problema</p>
+    <h2 class="sec-h2">¿Te suena esto?</h2>
+    <p class="sec-sub">Gestionas tu tienda Y tus redes. Es demasiado. Y sin un sistema, siempre acaba igual.</p>
+    <div class="pain-grid">
+      <div class="pain-card"><div class="pain-ico">😩</div><h3>Cada semana desde cero</h3><p>¿Qué publico hoy? La pregunta que te roba 30 minutos cada mañana y acaba en un post mediocre.</p></div>
+      <div class="pain-card"><div class="pain-ico">📦</div><h3>Lanzas colección y… nada</h3><p>Nueva temporada en tienda pero en Instagram nadie se entera porque no hay plan de contenido.</p></div>
+      <div class="pain-card"><div class="pain-ico">🤝</div><h3>Influencers sin control</h3><p>Gifted sin seguimiento, acuerdos sin documentar, fechas que se olvidan. Dinero y oportunidades perdidas.</p></div>
+      <div class="pain-card"><div class="pain-ico">📊</div><h3>Publicas pero no vendes</h3><p>Mucho esfuerzo, pocos resultados. No sabes qué funciona porque nunca miras las métricas.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <p class="sec-chip">La transformación</p>
+    <h2 class="sec-h2">Antes y después<br/>de tener el sistema.</h2>
+    <div class="transform-grid">
+      <div class="t-antes">
+        <span class="t-label lbl-antes">Sin Social Media OS</span>
+        <div class="t-item"><span>❌</span>Improvisas el contenido cada día</div>
+        <div class="t-item"><span>❌</span>Las ideas se pierden en notas y audios</div>
+        <div class="t-item"><span>❌</span>Los lanzamientos de colección pasan desapercibidos</div>
+        <div class="t-item"><span>❌</span>Las colaboraciones se gestionan por WhatsApp</div>
+        <div class="t-item"><span>❌</span>No sabes qué contenido genera ventas</div>
+      </div>
+      <div class="t-despues">
+        <span class="t-label lbl-desp">Con Social Media OS</span>
+        <div class="t-item"><span>✅</span>2 semanas de contenido planificado por adelantado</div>
+        <div class="t-item"><span>✅</span>Banco de ideas siempre lleno y organizado</div>
+        <div class="t-item"><span>✅</span>Cada colección tiene su campaña de contenido lista</div>
+        <div class="t-item"><span>✅</span>CRM completo de influencers con tarifas y fechas</div>
+        <div class="t-item"><span>✅</span>Métricas mensuales que te dicen qué ajustar</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec inc-sec" id="incluye">
+  <div class="wrap">
+    <p class="sec-chip">Qué incluye</p>
+    <h2 class="sec-h2">Todo lo que necesita<br/>tu tienda para crecer.</h2>
+    <p class="sec-sub">Sistema completo listo para usar desde el minuto uno, con datos de ejemplo reales orientados a moda.</p>
+    <div class="inc-grid">
+      <div class="inc-card"><div class="inc-ico">📅</div><h3>Calendario de Contenido</h3><p>Planifica posts, reels, stories y lanzamientos de colección con 5 vistas distintas.</p><span class="inc-tag">Base de datos</span></div>
+      <div class="inc-card"><div class="inc-ico">💡</div><h3>Banco de Ideas</h3><p>12 ideas de ejemplo para tiendas de ropa: hauls, lookbooks, behind the scenes, guías de tallas.</p><span class="inc-tag">Base de datos</span></div>
+      <div class="inc-card"><div class="inc-ico">🤝</div><h3>CRM de Colaboraciones</h3><p>Gestiona influencers y gifting con estado, tarifa, fecha de entrega y contrato.</p><span class="inc-tag">Base de datos</span></div>
+      <div class="inc-card"><div class="inc-ico">📈</div><h3>Métricas Mensuales</h3><p>Seguidores, alcance, engagement y ganancias con 6 meses de datos de ejemplo.</p><span class="inc-tag">Base de datos</span></div>
+      <div class="inc-card"><div class="inc-ico">🎬</div><h3>Plantilla de Guión</h3><p>Estructura reutilizable para cada Reel o TikTok: gancho, desarrollo, CTA y checklist.</p><span class="inc-tag">Plantilla reutilizable</span></div>
+      <div class="inc-card"><div class="inc-ico">💰</div><h3>Tarifario Profesional</h3><p>Tarifas por formato con fórmula de cálculo según seguidores y engagement.</p><span class="inc-tag">Subpágina</span></div>
+      <div class="inc-card"><div class="inc-ico">📋</div><h3>Guía de Procesos</h3><p>Flujos, estándares de captions, protocolo de colaboraciones y rutina semanal.</p><span class="inc-tag">Documentación</span></div>
+      <div class="inc-card"><div class="inc-ico">📖</div><h3>Instrucciones de Uso</h3><p>Guía paso a paso para empezar en 20 minutos con FAQ completa.</p><span class="inc-tag">Incluido</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec struct-sec">
+  <div class="wrap">
+    <p class="sec-chip">Estructura</p>
+    <h2 class="sec-h2">8 módulos que trabajan<br/>juntos por ti.</h2>
+    <div class="mod-list">
+      <div class="mod-row"><span class="mod-n">01</span><span class="mod-name">📱 Dashboard principal</span><span class="mod-desc">Hub central con perfil, objetivos y flujo de trabajo</span><span class="mod-badge b-pg">Página</span></div>
+      <div class="mod-row"><span class="mod-n">02</span><span class="mod-name">📅 Calendario de Contenido</span><span class="mod-desc">Tabla · Kanban · Kanban por red · Calendario · Lista filtrada</span><span class="mod-badge b-db">Base de datos</span></div>
+      <div class="mod-row"><span class="mod-n">03</span><span class="mod-name">💡 Banco de Ideas</span><span class="mod-desc">Categoría, prioridad, red social y notas estratégicas</span><span class="mod-badge b-db">Base de datos</span></div>
+      <div class="mod-row"><span class="mod-n">04</span><span class="mod-name">🤝 Colaboraciones &amp; Marcas</span><span class="mod-desc">Estado, tipo, tarifa €, fecha de entrega y contrato</span><span class="mod-badge b-db">Base de datos</span></div>
+      <div class="mod-row"><span class="mod-n">05</span><span class="mod-name">📈 Métricas Mensuales</span><span class="mod-desc">Seguidores, alcance, engagement y ganancias por mes</span><span class="mod-badge b-db">Base de datos</span></div>
+      <div class="mod-row"><span class="mod-n">06</span><span class="mod-name">🎬 Plantilla de Guión</span><span class="mod-desc">Gancho · Desarrollo · CTA · Checklist de producción</span><span class="mod-badge b-tpl">Plantilla</span></div>
+      <div class="mod-row"><span class="mod-n">07</span><span class="mod-name">💰 Tarifario Profesional</span><span class="mod-desc">Tarifas por formato y fórmula de cálculo</span><span class="mod-badge b-pg">Subpágina</span></div>
+      <div class="mod-row"><span class="mod-n">08</span><span class="mod-name">📖 Instrucciones de Uso</span><span class="mod-desc">Guía completa, rutina semanal y FAQ</span><span class="mod-badge b-pg">Subpágina</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec para-sec">
+  <div class="wrap">
+    <p class="sec-chip">¿Para quién es?</p>
+    <h2 class="sec-h2">Para quienes venden<br/>moda online.</h2>
+    <p class="sec-sub">No importa en qué punto estés. Este sistema crece contigo.</p>
+    <div class="para-grid">
+      <div class="para-card dest"><div class="para-emo">👗</div><h3>Tienda de ropa online</h3><p>Gestionas tú sola las redes y necesitas un sistema que ahorre tiempo y multiplique resultados.</p></div>
+      <div class="para-card"><div class="para-emo">🏪</div><h3>Tienda física con Instagram</h3><p>Quieres que tus redes conviertan cada lanzamiento en clientas reales en la tienda.</p></div>
+      <div class="para-card"><div class="para-emo">🚀</div><h3>Marca emergente de moda</h3><p>Estás construyendo tu marca y necesitas una base profesional que escale contigo.</p></div>
+      <div class="para-card"><div class="para-emo">💼</div><h3>Gestora de redes de moda</h3><p>Llevas las redes de tiendas y necesitas un sistema replicable para cada cliente.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec testi-sec">
+  <div class="wrap">
+    <p class="sec-chip">Testimonios</p>
+    <h2 class="sec-h2">Lo que dicen<br/>quienes ya lo usan.</h2>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-estrellas">★★★★★</div>
+        <p>"En una tarde planifiqué todo el mes de mayo. Nunca había tenido tan claro qué publicar cada día. El sistema es una maravilla."</p>
+        <div class="testi-autor">— Laura M. · Tienda de ropa online · Madrid</div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-estrellas">★★★★★</div>
+        <p>"Cerré mi primera colaboración pagada el mes que empecé a usar el CRM. Tener las tarifas documentadas me dio seguridad para negociar."</p>
+        <div class="testi-autor">— Sara G. · Marca emergente de moda · Barcelona</div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-estrellas">★★★★★</div>
+        <p>"Llevo tres meses con el sistema y mis ventas desde Instagram han subido un 40%. Por fin sé qué contenido funciona de verdad."</p>
+        <div class="testi-autor">— Ana R. · Boutique multimarca · Valencia</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec precio-sec" id="precio">
+  <div class="wrap">
+    <p class="sec-chip" style="text-align:center">Inversión</p>
+    <h2 class="sec-h2" style="text-align:center">Una vez la compras,<br/>trabaja para siempre.</h2>
+    <div class="price-box">
+      <span class="price-badge">✦ Acceso completo</span>
+      <div class="price-num"><sup>€</sup>27</div>
+      <div class="price-tachado">Precio habitual: 47 €</div>
+      <p class="price-nota">Pago único · Acceso de por vida · Actualizaciones incluidas<br/>Compatible 100% con el plan gratuito de Notion</p>
+      <ul class="price-lista">
+        <li>Dashboard principal personalizable</li>
+        <li>4 bases de datos profesionales</li>
+        <li>5 vistas distintas en el Calendario</li>
+        <li>11 posts de ejemplo para tienda de ropa</li>
+        <li>12 ideas estratégicas de moda</li>
+        <li>6 colaboraciones con marcas reales de ejemplo</li>
+        <li>6 meses de métricas de ejemplo</li>
+        <li>Plantilla de guión reutilizable</li>
+        <li>Tarifario con fórmula de cálculo</li>
+        <li>Instrucciones de uso paso a paso</li>
+        <li>Actualizaciones futuras sin coste extra</li>
+      </ul>
+      <a href="https://www.notion.so/templates" class="btn-comprar">Quiero mi Social Media OS →</a>
+      <div class="urgencia">
+        <span style="font-size:1.3rem">🔥</span>
+        <div class="urg-txt">
+          <strong>Precio de lanzamiento — tiempo limitado</strong>
+          <span>Cuando suba de precio volverá a 47€. Aprovéchalo ahora.</span>
+        </div>
+      </div>
+      <p class="price-guar">🔒 Acceso inmediato · Notion Marketplace · @remonmartalopez</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec faq-sec">
+  <div class="wrap">
+    <p class="sec-chip" style="text-align:center">Dudas frecuentes</p>
+    <h2 class="sec-h2" style="text-align:center">FAQ</h2>
+    <div class="faq-wrap">
+      <div class="faq-item"><details><summary>¿Necesito la versión de pago de Notion?</summary><p>No. Funciona al 100% con el plan gratuito. No necesitas ninguna suscripción adicional.</p></details></div>
+      <div class="faq-item"><details><summary>¿Cómo recibo la plantilla después de comprar?</summary><p>Recibirás un enlace de duplicado. En un clic, todo el sistema se copia a tu workspace listo para usar.</p></details></div>
+      <div class="faq-item"><details><summary>¿Puedo personalizarla con los datos de mi tienda?</summary><p>Completamente. Una vez duplicada es tuya. Edita el perfil, cambia los datos de ejemplo y adáptala a tu marca.</p></details></div>
+      <div class="faq-item"><details><summary>¿Sirve si solo tengo Instagram?</summary><p>Perfectamente. El sistema funciona para una sola red o para varias a la vez. Tú decides qué usas.</p></details></div>
+      <div class="faq-item"><details><summary>¿Y si tengo dudas después de comprar?</summary><p>La plantilla incluye instrucciones completas. Para dudas adicionales escríbeme por Instagram: @remonmartalopez.</p></details></div>
+      <div class="faq-item"><details><summary>¿Los datos de ejemplo son reales?</summary><p>Sí. Todos los posts, ideas y colaboraciones están creados para una tienda de ropa real, con captions y hashtags del sector español.</p></details></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec crea-sec">
+  <div class="wrap">
+    <div class="crea-av">💸</div>
+    <div class="crea-name">Marta López Remón</div>
+    <div class="crea-rol">Emprendedora digital · Notion Template Designer · Madrid 🇪🇸</div>
+    <p class="crea-bio">Especialista en negocios digitales e ingresos pasivos. Diseño sistemas Notion para emprendedoras y tiendas que quieren que su negocio funcione mientras duermen. Esta plantilla nació de gestionar contenido para tiendas de moda y no encontrar nada que realmente funcionara.</p>
+    <div class="crea-tags">
+      <span class="ctag">@remonmartalopez</span>
+      <span class="ctag">Notion</span>
+      <span class="ctag">Claude AI</span>
+      <span class="ctag">GitHub Pages</span>
+      <span class="ctag">Madrid</span>
+    </div>
+  </div>
+</section>
+
+<section class="cta-final">
+  <h2 class="cta-h2">Tu tienda merece<br/>un sistema que <em>venda.</em></h2>
+  <p class="cta-p">27€ · Pago único · Acceso inmediato.<br/>El mejor momento para empezar es ahora.</p>
+  <a href="#precio" class="btn-cta">Conseguir Social Media OS →</a>
+</section>
+
+<footer>
+  <p>© 2026 Social Media OS · Marta López Remón · <a href="https://instagram.com/remonmartalopez" target="_blank">@remonmartalopez</a> · <a href="https://claude.ai" target="_blank">Construida con Claude AI</a></p>
+</footer>
+
+</body>
+</html>
